@@ -1,0 +1,165 @@
+{% extends 'commonhome.html' %}
+
+{% block content %}
+<center>
+<div class="slider-area2">
+    <div class="slider-height2 d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap hero-cap2 pt-70">
+                        <h2>SHOP REGISTRATION</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div style="padding: 100px;">
+    <form method="post"  class="contactForm" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row" >
+            <div class="col-md-6">
+                <div class="form-group">
+                    
+                    <input  type="text" class="form-control" name="name" id="email"
+                        placeholder="Name" required>
+                </div>
+            </div> 
+            <div class="col-md-6" style="margin-left: 1px;">
+                <div class="form-group">
+                    <br>
+                    <input  type="email" class="form-control"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="email"
+                        id="email" placeholder="Email" required>
+                </div>
+            </div><br><br>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <br>
+                    <input  type="text" class="form-control" pattern="[6789][0-9]+"
+                        maxlength="10" minlength="10" name="phone" id="email"
+                        placeholder="Phone" required>
+                </div>
+            </div>
+            <div class="col-md-6" style="margin-left: 1px;">
+                <div class="form-group" >
+                    <br>
+                    <input  type="password" class="form-control" name="password" id="name"
+                        placeholder="Password" required>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <br>
+                    <select   data-placeholder="Begin typing a name to filter..."
+                         name="skills" id="mySelect"  required>
+                         <option value="Adoor">Adoor</option>
+                         <option value="Alathur">Alathur</option>
+                         <option value="Aluva">Aluva</option>
+                         <option value="Anchal">Anchal</option>
+                         <option value="Attingal">Attingal</option>
+                         <option value="Badagara">Badagara</option>
+                         <option value="Chalakudy">Chalakudy</option>
+                         <option value="Changanassery">Changanassery</option>
+                         <option value="Cherthala">Cherthala</option>
+                         <option value="Chirayinkeezhu">Chirayinkeezhu</option>
+                         <option value="Erattupetta">Erattupetta</option>
+                         <option value="Ernakulam">Ernakulam</option>
+                         <option value="Idukki">Idukki</option>
+                         <option value="Irinjalakuda">Irinjalakuda</option>
+                         <option value="Kanhangad">Kanhangad</option>
+                         <option value="Karunagappally">Karunagappally</option>
+                         <option value="Kasaragod">Kasaragod</option>
+                         <option value="Kattakkada">Kattakkada</option>
+                         <option value="Kayamkulam">Kayamkulam</option>
+                         <option value="Kodungallur">Kodungallur</option>
+                         <option value="Kollam">Kollam</option>
+                         <option value="Kothamangalam">Kothamangalam</option>
+                         <option value="Kottarakkara">Kottarakkara</option>
+                         <option value="Kottayam">Kottayam</option>
+                         <option value="Kunnamkulam">Kunnamkulam</option>
+                         <option value="Malappuram">Malappuram</option>
+                         <option value="Mananthavady">Mananthavady</option>
+                         <option value="Mavelikkara">Mavelikkara</option>
+                         <option value="Mukundapuram">Mukundapuram</option>
+                         <option value="Muvattupuzha">Muvattupuzha</option>
+                         <option value="Nedumangad">Nedumangad</option>
+                         <option value="Neyyattinkara">Neyyattinkara</option>
+                         <option value="Nilambur">Nilambur</option>
+                         <option value="Ottappalam">Ottappalam</option>
+                         <option value="Palai">Palai</option>
+                         <option value="Palakkad">Palakkad</option>
+                         <option value="Paravur">Paravur</option>
+                         <option value="Pathanamthitta">Pathanamthitta</option>
+                         <option value="Pattambi">Pattambi</option>
+                         <option value="Payyannur">Payyannur</option>
+                         <option value="Peerumade">Peerumade</option>
+                         <option value="Perinthalmanna">Perinthalmanna</option>
+                         <option value="Perumbavoor">Perumbavoor</option>
+                         <option value="Ponnani">Ponnani</option>
+                         <option value="Punalur">Punalur</option>
+                         <option value="Ranni">Ranni</option>
+                         <option value="Shoranur">Shoranur</option>
+                         <option value="Taliparamba">Taliparamba</option>
+                         <option value="Thalassery">Thalassery</option>
+                         <option value="Thamarassery">Thamarassery</option>
+                         <option value="Thiruvalla">Thiruvalla</option>
+                         <option value="Thirur">Thirur</option>
+                         <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+                         <option value="Thodupuzha">Thodupuzha</option>
+                         <option value="Thrissur">Thrissur</option>
+                         <option value="Tirurangadi">Tirurangadi</option>
+                         <option value="Tirur">Tirur</option>
+                         <option value="Tiryani">Tiryani</option>
+                         <option value="Udumbanchola">Udumbanchola</option>
+                         <option value="Vaikom">Vaikom</option>
+                         <option value="Vadakara">Vadakara</option>
+                         <option value="Vatakara">Vatakara</option>
+                         <option value="Vamanapuram">Vamanapuram</option>
+                         <option value="Vythiri">Vythiri</option>
+                         <option value="Wayanad">Wayanad</option>
+                         <option value="North Paravur">North Paravur</option>
+                         <option value="Kollam Metropolitan">Kollam Metropolitan</option>
+                         <option value="Karunagappally Metropolitan">Karunagappally Metropolitan</option>
+                         <option value="Thiruvananthapuram Metropolitan">Thiruvananthapuram Metropolitan</option>
+                         <option value="Irinjalakuda Metropolitan">Irinjalakuda Metropolitan</option>
+                         <option value="Kodungallur Metropolitan">Kodungallur Metropolitan</option>
+                         <option value="Kochi Metropolitan">Kochi Metropolitan</option>
+                         <option value="Kozhikode Metropolitan">Kozhikode Metropolitan</option>
+                         <option value="Muvattupuzha Metropolitan">Muvattupuzha Metropolitan</option>
+                         <option value="Palakkad Metropolitan">Palakkad Metropolitan</option>
+                         <option value="Thrissur Metropolitan">Thrissur Metropolitan</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-12" style="margin-left: 1px;">
+                <div class="form-group">
+                    <br>
+                    <input  class="form-control" name="image" type="file"
+                        id="formFileMultiple" accept="image/*"  required>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <br>
+                    <textarea  name="address" class="form-control" id="message" cols="30"
+                        rows="4" placeholder="Address" required></textarea>
+                </div>
+            </div>
+            <div class="col-md-12" style="margin-left: 1px;">
+                <div class="form-group">
+                    <br>
+<br>
+                    <button type="submit" value="Sign Up" class="btn btn-primary" >Register</button>
+                    
+                    <br><br><br><br>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</center>
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'userhome.html' %}
+
+{% block content %}
+<div class="slider-area position-relative">
+    <div class="slider-active">
+        <!-- Single Slider -->
+        <div class="single-slider slider-height d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 col-lg-9 col-md-10">
+                        <div class="hero__caption">
+                            <h1 data-animation="fadeInLeft" data-delay="0.1s">HEY {{ user }}</h1>
+                            <span data-animation="fadeInLeft" data-delay="0.4s">CHECK THIS PRODUCTS</span>
+                            <a href="courses.html" class="border-btn hero-btn" data-animation="fadeInLeft" data-delay="0.8s">My Products</a>
+                        </div>
+                    </div>
+                </div>
+            </div>          
+        </div>
+    </div>
+</div>
+
+<div class="d-flex" style="margin: 50px;align-items: center;"   >
+    {% for i in product %}
+    <div class="card"  style="margin-left: 20px;border-radius: 50px;background: #ffffff;box-shadow:  20px 20px 43px #bebebe,
+                 -20px -20px 43px #ffffff;width: 400px;align-items: center;">
+          <div class="image-container" style="min-height: 350px;align-content: center;">
+            <center>    <div class="first d-flex">
+                <div class="d-flex justify-content-between align-items-center">
+                
+                
+                </div>
+            </div>
+            <img style="width: 200px;height: max-content;" src="/static/media/{{ i.image }}" class="img-fluid rounded thumbnail-image"></center>
+        </div>
+        <div class="d-flex">
+        <div class="product-detail-container p-2">
+                <div class=" justify-content-between align-items-center">
+                    <p class="dress-name text-center"  style="font-size: 13px;" >{{ i.company}}</p>
+                    <h5 class="dress-name text-center" >{{ i.name}}</h5>
+                    <p class="dress-name" style="font-size: 15px;"  >{{ i.desc}}</p>
+                    <p class="dress-name" style="font-size: 15px;"  >{{ i.exptime}}</p>
+                    <p class="dress-name" style="font-size: 15px;"  >{{ i.age}}</p>
+                    
+                    <div class="d-flex flex-column mb-2">
+                        <p class="dress-name" style="font-size: 13px;" >{{ i.sid.name}}</p>
+                        <span class="new-price text-center" style="font-size: 40px;">₹{{ i.price }}</span>
+                        
+                    </div>
+                </div>
+                
+                <div class="d-flex justify-content-between align-items-center pt-1">
+                    <div>
+                        <i class="fa fa-star-o rating-star"></i>
+                       
+                        <a class="btn" href="/usercart?pid={{ i.id }}" style="font-size: 15px;border-radius: 50px;box-shadow:  20px 20px 43px #bebebe,
+                        -20px -20px 43px #ffffff;">BUY</a>
+                 
+       
+                    </div>
+                   
+                </div>
+        </div></div>
+    </div>   {% endfor %}
+</div>
+
+
+
+
+
+{% endblock %}

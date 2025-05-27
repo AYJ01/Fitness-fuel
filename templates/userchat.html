@@ -1,0 +1,107 @@
+{% extends 'userhome.html' %}
+
+{% block content %}
+<div class="slider-area position-relative">
+    <div class="slider-active">
+        <!-- Single Slider -->
+        <div class="single-slider slider-height d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 col-lg-9 col-md-10">
+                        <div class="hero__caption">
+                            <h1 data-animation="fadeInLeft" data-delay="0.1s">HEY {{ user }}</h1>
+                            <span data-animation="fadeInLeft" data-delay="0.4s">CHAT</span>
+                            <a href="courses.html" class="border-btn hero-btn" data-animation="fadeInLeft" data-delay="0.8s">My Products</a>
+                        </div>
+                    </div>
+                </div>
+            </div>          
+        </div>
+    </div>
+  </div>
+<div class="container" style="margin: 100px;" >
+    <div class="row clearfix">
+        <div class="col-lg-12">
+            <div class="card chat-app">
+                <div id="plist" class="people-list">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-search"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Search...">
+                    </div>
+                    <ul class="list-unstyled chat-list mt-2 mb-0">
+                        {% for product in product %}
+                        <li class="clearfix">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
+                            <div class="about">
+                                <div class="name"><a href="{% url 'userchat' %}?tid={{ product.id }}">{{ product.name }}</a></div>
+                                <div class="status"> <i class="fa fa-circle offline"></i> {{ product.email }}</div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="chat">
+                    <div class="chat-header clearfix">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
+                                    <img width="50px" style="border-radius: 100px;" height="50px" src="/static/media/{{ trainer.image }}" alt="avatar">
+                                </a>
+                                <div class="chat-about">
+                                    <h6 class="m-b-0">{{ trainer.name }}</h6>
+                                    <small>{{ trainer.email }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-history">
+                        <ul class="m-b-0">
+                            {% for chat in chats %}
+                           {% if chat.sender == chat.uid.email %}
+                           <li class="clearfix">
+                            <div class="message-data {% if chat.sender == request.user %}text-right{% endif %}">
+                                <span class="message-data-time">{{ chat.timestamp }}</span>
+                                <img src="/static/media/{{ chat.uid.image }}"width="50px" height="50px" style="border-radius: 100px;" alt="avatar">
+                            </div>
+                            <div class="message {% if chat.sender == request.user %}other-message float-right{% else %}my-message{% endif %}">
+                                {{ chat.message }}
+                            </div>
+                        </li>
+                        {% else %}
+                        <li class="clearfix">
+                            <div class="message-data {% if chat.sender == request.user %}text-right{% endif %}">
+                                <span class="message-data-time">{{ chat.timestamp }}</span>
+                                <img src="/static/media/{{ chat.tid.image }}"width="50px" height="50px" style="border-radius: 100px;" alt="avatar">
+                            </div>
+                            <div class="message {% if chat.sender == request.user %}other-message float-right{% else %}my-message{% endif %}">
+                                {{ chat.message }}
+                            </div>
+                        </li>
+                        {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="chat-message clearfix">
+                        <form method="post" >
+                            {% csrf_token %}
+                            <div class="input-group mb-0">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-send"></i></span>
+                                </div>
+                                <input type="text" name="message" class="form-control" placeholder="Enter text here...">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Add your existing CSS styles here */
+</style>
+
+{% endblock %}

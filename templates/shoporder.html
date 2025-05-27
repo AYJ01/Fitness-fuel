@@ -1,0 +1,98 @@
+{% extends 'shophome.html' %}
+
+{% block content %}
+
+<div class="slider-area position-relative">
+    <div class="slider-active">
+        <!-- Single Slider -->
+        <div class="single-slider slider-height d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 col-lg-9 col-md-10">
+                        <div class="hero__caption">
+                            <span data-animation="fadeInLeft" data-delay="0.1s">Hi This is  Fitness Club</span>
+                            <h1 data-animation="fadeInLeft" data-delay="0.4s">WELCOME {{ user }}</h1>
+                            <a href="courses.html" class="border-btn hero-btn" data-animation="fadeInLeft" data-delay="0.8s">My Products</a>
+                        </div>
+                    </div>
+                </div>
+            </div>          
+        </div>
+    </div>
+</div>
+<div class="container table-container">
+    <table class="table neumorphic-table">
+        <thead>
+            <tr>
+              <th >SI</th>
+              <th >Product Name</th>
+              <th >Product Image</th>
+              <th >Description</th>
+              
+              <th >Price</th>
+              <th >Status</th>
+            </tr>
+        </thead>
+        <tbody>
+          {% for i in booked %}
+            <tr>
+                <td>{{ forloop.counter}}</td>
+                <td>{{ i.pid.name }}</td>
+                <td> <img src="/static/media/{{i.pid.image}}" width="100px" /></td>
+                <td>{{ i.pid.desc }}</td>
+                <td>{{ i.tot }}</td>
+                <td>{{ i.bid.status }}</td>
+                {% if i.bid.status != 'Delivered' %}
+
+                <td><a class="btn btn-success" href="/shopdelivery?bid={{ i.bid.id}}" >Delivery</a></td>
+
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </div>
+  <style>
+  
+  
+    .neumorphic-table {
+        border-collapse: collapse;
+        width: 100%;
+        background: #ffffff;
+        box-shadow: 8px 8px 16px #b0b1b2, -8px -8px 16px #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+  
+    .neumorphic-table th,
+    .neumorphic-table td {
+        padding: 12px 15px;
+        text-align: left;
+        background: #ffffff;
+        box-shadow: inset 2px 2px 5px #b9b9ba, inset -2px -2px 5px #ffffff;
+    }
+  
+    .neumorphic-table th {
+        background: #ffffff;
+    }
+  
+    .neumorphic-table tr:nth-child(even) {
+        background: #ffffff;
+    }
+  
+    .table-container {
+        padding: 20px;
+    }
+  </style>
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  
+  
+  
+  
+
+
+{% endblock %}

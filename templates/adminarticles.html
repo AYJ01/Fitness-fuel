@@ -1,0 +1,120 @@
+{% extends 'adminhome.html' %}
+
+{% block content %}
+<div class="slider-area position-relative">
+    <div class="slider-active">
+        <!-- Single Slider -->
+        <div class="single-slider slider-height d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 col-lg-9 col-md-10">
+                        <div class="hero__caption">
+                           <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="text" name="heading" class="form-control" placeholder="Heading"><br><br>
+                            <input type="file" name="image" class="form-control" placeholder="Image"><br><br>
+                            <input type="text" name="paragraph" class="form-control" placeholder="Explanation"><br><br>
+                            <button type="submit" class="btn" > Post </button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>          
+        </div>
+    </div>
+</div>
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<center><div>
+{% for i in products %}
+
+<div class="box" style="margin: 50px;width: 1000px;">
+    <div class="container">
+     	<div class="row">
+			 
+            <div class="card col-lg-4 col-md-4 col-sm-4 col-xs-12" style="width: 1000px;">
+                <div class="box-part text-center">
+                    <img src="/static/media/{{ i.image}}" alt="Post Image">
+                    <div class="title">
+                        <h4>{{ i.heading }}</h4>
+                    </div>
+                    <div class="text">
+                        <span>{{ i.paragraph }}</span>
+                    </div>
+                    <div class="text">
+                        <span class="date">{{ i.date }}</span>
+                    </div>
+                    <div class="text">
+                        <a class="btn btn-danger" href="/admindeletearticle?aid={{ i.id }}"> Delete </a>
+                    </div>
+                </div>
+            </div></div></div></div>
+				
+
+{% endfor %}
+</div></center>
+<style>
+    
+
+    .box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       width: 2000px;
+       max-width: 2000px;
+    }
+
+    .container {
+        width: 1000%;
+    }
+
+    .row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+    }
+
+    .box-part {
+        padding: 20px;
+    }
+
+    .box-part img {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+    }
+
+    .title h4 {
+        margin: 20px 0 10px;
+        font-size: 1.5em;
+        color: #333;
+    }
+
+    .text span {
+        display: block;
+        margin: 10px 0;
+        color: #666;
+    }
+
+    .text span.date {
+        font-size: 0.9em;
+        color: #aaa;
+    }
+</style>
+
+{% endblock %}

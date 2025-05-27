@@ -1,0 +1,52 @@
+{% extends 'adminhome.html' %}
+
+{% block content %}
+
+<div class="slider-area position-relative">
+    <div class="slider-active">
+        <!-- Single Slider -->
+        <div class="single-slider slider-height d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 col-lg-9 col-md-10">
+                        <div class="hero__caption">
+                            <span data-animation="fadeInLeft" data-delay="0.1s">Hi This is  Fitness Club</span>
+                            <h1 data-animation="fadeInLeft" data-delay="0.4s">CUSTOMERS</h1>
+                            <a href="courses.html" class="border-btn hero-btn" data-animation="fadeInLeft" data-delay="0.8s">My Products</a>
+                        </div>
+                    </div>
+                </div>
+            </div>          
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped" style="margin: 50px;margin-right: 50px;">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Image</th>
+        <th scope="col">Email</th>
+        <th scope="col">Address</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in products %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ i.name }}</td>
+        <td><img src="/static/media/{{ i.image }}" width="100px"></td>
+        <td>{{ i.email }}</td>
+        <td>{{ i.address }}</td>
+        <td> <div class="text">
+            <a class="btn btn-danger" href="/admindeleteuser?aid={{ i.id }}"> Delete </a>
+        </div></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+{% endblock %}

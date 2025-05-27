@@ -1,0 +1,102 @@
+{% extends 'commonhome.html' %}
+
+{% block content %}
+
+<center>
+    <div class="slider-area2">
+        <div class="slider-height2 d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap hero-cap2 pt-70">
+                            <h2>Login</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="ftco-section ">
+        <div class="container" style="margin: 0 25%;">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="wrapper px-md-4">
+                        <div class="row no-gutters">
+                            <div class="col-md-7">
+                                <div class="contact-wrap w-100 p-md-5 p-4">
+                                    <h3 class="mb-4">USER REGISTRATION</h3>
+                                    <form method="POST"  class="contactForm" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <br>
+                                                    <input  type="text" class="form-control" name="name" id="email"
+                                                        placeholder="Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <br>
+                                                    <input  type="email" class="form-control" name="email" id="email"
+                                                        placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <br>
+                                                    <input  type="text" class="form-control" pattern="[6789][0-9]+"
+                                                        maxlength="10" minlength="10" name="phone" id="email"
+                                                        placeholder="Phone">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <br>
+                                                    <input  type="file" class="form-control" 
+                                                        name="image" id="email"
+                                                        placeholder="Image">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <br>
+                                                    <input  type="password" class="form-control" name="password" id="name"
+                                                        placeholder="Password">
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="label" for="subject">Subject</label>
+                                                    <input type="text" class="form-control" name="subject" id="subject"
+                                                        placeholder="Subject">
+                                                </div>
+                                            </div> -->
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <br>
+                                                    <textarea  name="address" class="form-control" id="message" cols="30"
+                                                        rows="4" placeholder="Address"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <br>
+                                                    <input type="submit" value="Sign Up" class="btn btn-primary" >
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</center>
+
+{% endblock %}
